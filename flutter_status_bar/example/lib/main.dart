@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
             children: [
               TextButton(
                   onPressed: () {
-                    FlutterStatusBar.showStatusBar('FlutterStatusBar')
+                    FlutterStatusBar.showStatusBar()
                         .then((value) => print('showStatusBar $value'));
                   },
                   child: Text('showStatusBar')),

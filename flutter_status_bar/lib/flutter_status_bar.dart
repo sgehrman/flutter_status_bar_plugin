@@ -15,10 +15,10 @@ class FlutterStatusBar {
   static const EventChannel _eventChannel =
       const EventChannel('plugins.coolsnow/flutter_status_bar_event_channel');
 
-  static Future<bool> showStatusBar(String text) async {
+  static Future<bool> showStatusBar() async {
     final bool result = await (Platform.isWindows
-        ? _methodChannel.invokeMethod('showStatusBar', {'text': text})
-        : _methodChannel.invokeMethod('showStatusBar', text));
+        ? _methodChannel.invokeMethod('showStatusBar')
+        : _methodChannel.invokeMethod('showStatusBar'));
     return result;
   }
 

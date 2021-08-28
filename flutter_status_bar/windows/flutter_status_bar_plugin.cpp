@@ -198,11 +198,6 @@ wstring string2wstring(string str)
 
 bool FlutterStatusBarPlugin::ShowStatusBar(const flutter::MethodCall<flutter::EncodableValue> &method_call)
 {
-  std::string text = GetTextArgument(method_call);
-  if (!text.empty())
-  {
-    m_text = string2wstring(text);
-  }
   if (m_hWnd == NULL)
   {
     WNDCLASSA windowClass = {0};
