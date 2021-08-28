@@ -23,6 +23,8 @@ public class FlutterStatusBarPlugin: NSObject, FlutterPlugin, FlutterStreamHandl
       hideStatusBar(call, result: result)
     case "setStatusBarText":
       setStatusBarText(call, result: result)
+    case "setStatusBarIcon":
+      setStatusBarIcon(call, result: result)
     case "isShown":
       result(self.statusBarItem != nil)
     default:
@@ -52,6 +54,20 @@ public class FlutterStatusBarPlugin: NSObject, FlutterPlugin, FlutterStreamHandl
     if self.statusBarItem != nil {
       let text = call.arguments as! String
       statusBarItem.button?.title = text
+      result(true)
+    } else {
+      result(false)
+    }
+  }
+
+  private func setStatusBarIcon(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    if self.statusBarItem != nil {
+      let bytes = [UInt8]((call.arguments as! FlutterStandardTypedData).data)
+
+      let image = NSImage(data: Data(bytes))
+
+      self.statusBarItem.button?.image = image
+
       result(true)
     } else {
       result(false)
