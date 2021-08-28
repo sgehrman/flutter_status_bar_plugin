@@ -103,7 +103,7 @@ public class FlutterStatusBarPlugin: NSObject, FlutterPlugin, FlutterStreamHandl
         // Activate the application to the foreground (if the application window is inactive)
         NSRunningApplication.current.activate(options: [NSApplication.ActivationOptions.activateIgnoringOtherApps])
         let window = NSApp.windows[0]
-        window.orderFront(self)
+        window.makeKeyAndOrderFront(self)
     }
     
     public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
