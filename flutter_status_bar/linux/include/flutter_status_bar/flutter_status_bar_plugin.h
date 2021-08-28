@@ -12,15 +12,16 @@ G_BEGIN_DECLS
 #endif
 
 typedef struct _FlutterStatusBarPlugin FlutterStatusBarPlugin;
-typedef struct {
+typedef struct
+{
   GObjectClass parent_class;
 } FlutterStatusBarPluginClass;
 
 FLUTTER_PLUGIN_EXPORT GType flutter_status_bar_plugin_get_type();
 
 FLUTTER_PLUGIN_EXPORT void flutter_status_bar_plugin_register_with_registrar(
-    FlPluginRegistrar* registrar);
+    FlPluginRegistrar *registrar);
 
 G_END_DECLS
 
-#endif  // FLUTTER_PLUGIN_FLUTTER_STATUS_BAR_PLUGIN_H_
+#endif // FLUTTER_PLUGIN_FLUTTER_STATUS_BAR_PLUGIN_H_
