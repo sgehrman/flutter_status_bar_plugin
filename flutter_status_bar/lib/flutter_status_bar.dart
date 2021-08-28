@@ -5,6 +5,7 @@
 
 import 'dart:async';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 
@@ -30,6 +31,13 @@ class FlutterStatusBar {
     final bool result = await (Platform.isWindows
         ? _methodChannel.invokeMethod('setStatusBarText', {'text': text})
         : _methodChannel.invokeMethod('setStatusBarText', text));
+    return result;
+  }
+
+  static Future<bool> setStatusBarIcon(Uint8List iconData) async {
+    final bool result = await (Platform.isWindows
+        ? _methodChannel.invokeMethod('setStatusBarIcon', {'icon': iconData})
+        : _methodChannel.invokeMethod('setStatusBarIcon', iconData));
     return result;
   }
 
